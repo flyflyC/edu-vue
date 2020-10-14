@@ -3,7 +3,7 @@ export default {
   //2 课程列表（树形分级展示）
   getAllSubjectList(current,limit,teacherQuery) {
     return request({
-      url: `/teacher/eduSubject/getAllSubject`,
+      url: `/eduService/eduSubject/getAllSubject`,
       method: 'get',
     })
   }
