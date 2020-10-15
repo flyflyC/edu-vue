@@ -38,3 +38,20 @@ vue-admin-edu\src\views\edu\subject——save：程管理模块的上传excel添
 文件上传：由于前端和后端接口的一个单词不同，导致404，查了半天，后面看后台代码才发现
 建议：后端接口最好复制粘贴到前端中
 
+
+- 2020-10-14
+1、课程信息分步上传功能的课程信息部分
+
+2、课程信息章节上传部分
+
+vue-admin-edu\src\views\edu\course——info：课程信息分步上传的首页（集成了图片上传及Tinymce富文本编辑器）
+vue-admin-edu\src\views\edu\course——chapter：分步上传信息第二步（目前完成了章节信息的树形展示，章节信息的增删改查）
+
+- 2020-10-15
+
+1、完成了分步上传的所有功能和步骤（确认上传、课程发布、视频删除、小节删除，视频删除等功能）
+
+2、完成了课程信息列表及模糊查询功能
+
+vue-admin-edu\src\views\edu\course——publish:课程信息发布
+vue-admin-edu\src\views\edu\course——list：课程信息展示列表及分类查询功能（还需要修改，页面比较丑）

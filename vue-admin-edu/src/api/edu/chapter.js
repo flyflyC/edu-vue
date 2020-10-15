@@ -34,9 +34,9 @@ export default {
     })
   },
   // 删除章节
-  deleteChapter(clipboard) {
+  deleteChapter(chapterId) {
     return request({
-      url: `/eduService/chapter/deleteChapter/${clipboard}`,
+      url: `/eduService/chapter/deleteChapter/${chapterId}`,
       method: 'delete'
     })
   },
