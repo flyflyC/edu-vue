@@ -55,3 +55,13 @@ vue-admin-edu\src\views\edu\course——chapter：分步上传信息第二步（
 
 vue-admin-edu\src\views\edu\course——publish:课程信息发布
 vue-admin-edu\src\views\edu\course——list：课程信息展示列表及分类查询功能（还需要修改，页面比较丑）
+
+- 2020-10-16
+
+1、使用nuxt框架作为系统前台
+
+2、首页完成
+
+问题：swiper的使用，及轮播图展示问题（目前轮播图无法展示）
+
+- 2020-10-17

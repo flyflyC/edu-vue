@@ -128,7 +128,7 @@
         this.courseId = this.$route.params.id
         this.getInfo()
       }else {
-        this.getListTeacher()
+        this.getTeacherList()
         this.getOneSubject()
       }
 
@@ -203,9 +203,10 @@
           })
       },
       //查询所有的讲师
-      getListTeacher() {
+      getTeacherList() {
         course.getListTeacher()
           .then(response => {
+            console.log(response)
             this.teacherList = response.data.teachers
           })
       },

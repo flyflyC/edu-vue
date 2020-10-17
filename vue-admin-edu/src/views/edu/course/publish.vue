@@ -70,7 +70,7 @@ import course from "@/api/edu/course";
             .then(res=>{
               this.$message({
                 type: 'success',
-                message: '删除小节成功!'
+                message: '发布课程成功!'
               });
               this.$router.push({ path: '/course/list' })
             })

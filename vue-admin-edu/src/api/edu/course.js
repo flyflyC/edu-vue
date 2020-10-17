@@ -27,9 +27,9 @@ export default {
     })
   },
   //查询所有讲师
-  getListCourse() {
+  getListTeacher() {
     return request({
-      url: `/eduService/course/findAll`,
+      url: `/teacher/findAll`,
       method: 'get',
     })
   },

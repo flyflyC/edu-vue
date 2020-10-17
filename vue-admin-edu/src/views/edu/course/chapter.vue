@@ -75,7 +75,7 @@
           <el-input-number v-model="video.sort" :min="0" controls-position="right"/>
         </el-form-item>
         <el-form-item label="是否免费">
-          <el-radio-group v-model="video.free">
+          <el-radio-group v-model="video.isFree">
             <el-radio :label="true">免费</el-radio>
             <el-radio :label="false">默认</el-radio>
           </el-radio-group>
@@ -127,7 +127,7 @@
         video: {
           title: '',
           sort: 0,
-          free: 0,
+          isFree: 0,
           videoSourceId: '',
           videoOriginalName:''//视频名称
         },
@@ -203,7 +203,7 @@
         video.updateVideo(this.video)
           .then(res=>{
             //关弹窗
-            this.dialogChapterFormVisible=false
+            this.dialogVideoFormVisible=false
             //提示信息
             this.$message({
               type: 'success',
@@ -239,7 +239,7 @@
         video.addVideo(this.video)
         .then(res=>{
           //关弹窗
-          this.dialogVideoFormVisible=false
+          this.dialogVideoFormVisible= false
           //提示信息
           this.$message({
             type: 'success',
@@ -260,12 +260,12 @@
       openVideo(chapterId) {
         //弹框
         this.dialogVideoFormVisible = true
+        //清空
+        this.video = {}
+        //this.fileList = []
         //设置章节id
         this.video.chapterId = chapterId
-        this.video.title=''
-        this.video.sort=''
-        this.video.free=''
-        this.video.videoSourceId=''
+
       },
       //===============章节操作==================
       removeChapter(chapterId){
