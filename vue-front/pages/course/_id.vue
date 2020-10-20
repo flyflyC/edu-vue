@@ -12,7 +12,7 @@
       <div>
         <article class="c-v-pic-wrap" style="height: 357px;">
           <section class="p-h-video-box" id="videoPlay">
-            <img :src="courseWebVo.cover" :alt="courseWebVo.title" class="dis c-v-pic" style="height: 360px;">
+            <img :src="courseWebVo.cover" :alt="courseWebVo.title" class="dis c-v-pic" style="height: 357px;width:640px">
           </section>
         </article>
         <aside class="c-attr-wrap">
@@ -33,13 +33,16 @@
                 <a class="c-fff vam" title="收藏" href="#" >收藏</a>
               </span>
             </section>
-            <section class="c-attr-mt">
-              <a href="#" title="立即观看" class="comm-btn c-btn-3">立即观看</a>
+            <section class="c-attr-mt" v-if="isbuy || courseWebVo.price==0">
+              <a  href="#" title="立即观看" class="comm-btn c-btn-3">立即观看</a>
+            </section>
+            <section class="c-attr-mt" v-else>
+              <a @click="creatOrders()"  title="立即购买" class="comm-btn c-btn-3">立即购买</a>
             </section>
           </section>
         </aside>
         <aside class="thr-attr-box">
-          <ol class="thr-attr-ol clearfix">
+          <ol class="thr-attr-ol">
             <li>
               <p>&nbsp;</p>
               <aside>
@@ -107,7 +110,7 @@
                             </a>
                             <ol class="lh-menu-ol" style="display: block;">
                               <li class="lh-menu-second ml30" v-for="video in chapter.children" :key="video.id">
-                                <a :href="'/player/'+videoId" target="_blank" @click="getVideoId(video.id)">
+                                <a :href="'/player/'+videoInfo.videoId" target="_blank" @click="getVideoId(video.id)">
                                   <span class="fr">
                                     <i class="free-icon vam mr10">免费试听}</i>
                                   </span>
@@ -247,15 +250,14 @@
 <script>
   import courseApi from '../../api/course'
   import comment from "../../api/comment";
+  import orderApi from "../../api/order";
 export default {
   asyncData({params,error}){
     return courseApi.getCourseInfo(params.id)
       .then(res=>{
         //console.log(res.data.data.courseWebVo)
         return{
-          courseWebVo: res.data.data.courseWebVo,
-          chapterVideo: res.data.data.chapterVideo,
-          courseId: params.id
+          courseId: params.id,
         }
       })
   },
@@ -266,23 +268,46 @@ export default {
         page:1,
         limit:4,
         total:10,
+        orderNo: '',
         comment:{
           content:'',
           courseId:''
         },
+        videoInfo:{
+          id: '',
+          title: '',
+          videoId: ''
+        },
         courseInfo:{},
         chapterVideoList:[],
-        isbuyCourse:false
+        courseWebVo: {},
+        chapterVideo:[],
+        isbuyCourse:false,
+        isbuy:false
       }
     },
   created() {
+    //this.getVideoId(this.videoId)
+    this.initCourseInfo();
       this.initComment();
+
   },
   methods: {
+    initCourseInfo(){
+      courseApi.getCourseInfo(this.courseId)
+        .then(res=>{
+          //console.log(res.data.data.courseWebVo)
+            this.courseWebVo=res.data.data.courseWebVo,
+            this.chapterVideo=res.data.data.chapterVideo,
+            this.isbuy=res.data.data.isBuy
+
+        })
+    },
+
       getVideoId(id){
         courseApi.getVideoById(id)
         .then(res=>{
-          this.videoId = res.data.data.video.videoSourceId
+          this.videoInfo.videoId = res.data.data.video.videoSourceId
         })
       },
     initComment(){
@@ -305,6 +330,16 @@ export default {
     gotoPage(page){
       comment.getPageList(page, this.limit,this.courseId).then(response => {
         this.data = response.data.data
+      })
+    },
+    //生成订单
+    creatOrders(){
+        orderApi.creatOrder(this.courseId)
+      .then(res=>{
+        //获取返回的订单号
+        this.orderNo = res.data.data.orderNo;
+        //跳转至订单界面
+        this.$router.push({path:'/orders/'+res.data.data.orderNo})
       })
     }
   }

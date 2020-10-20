@@ -25,6 +25,9 @@
             <router-link to="/qa" tag="li" active-class="current">
               <a>问答</a>
             </router-link>
+            <router-link to="/blog" tag="li" active-class="current">
+              <a>博客</a>
+            </router-link>
           </ul>
           <!-- / nav -->
           <!-- / nav -->
@@ -135,9 +138,16 @@
   import "~/assets/css/theme.css";
   import "~/assets/css/global.css";
   import "~/assets/css/web.css";
+  import '~/assets/css/base.css';
+  import '~/assets/css/activity_tab.css';
+  import '~/assets/css/bottom_rec.css';
+  import '~/assets/css/nice_select.css';
+  import '~/assets/css/order.css';
+  import '~/assets/css/swiper-3.3.1.min.css';
+  import "~/assets/css/pages-weixinpay.css";
 
   import cookie from 'js-cookie'
-  import loginApi from '@/api/login'
+  import loginApi from '../api/login'
 
   export default {
     data() {
