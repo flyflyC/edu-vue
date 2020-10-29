@@ -1,8 +1,8 @@
 {
-  "name": "vue-admin-template",
+  "name": "Vedu-admin",
   "version": "4.4.0",
-  "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
-  "author": "Pan <panfree23@gmail.com>",
+  "description": "一个基于Vue-admin-template模板，开发的在线教育后台系统",
+  "author": "Cai <1903203411@qq.com>",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build:prod": "vue-cli-service build",
@@ -26,7 +26,8 @@
     "tinymce": "^5.5.1",
     "vue": "2.6.10",
     "vue-router": "3.0.6",
-    "vuex": "3.1.0"
+    "vuex": "3.1.0",
+    "vuex-persistedstate": "^4.0.0-beta.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "4.4.4",
