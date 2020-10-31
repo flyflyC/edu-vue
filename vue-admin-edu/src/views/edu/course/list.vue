@@ -55,7 +55,7 @@
       </el-table-column>
 
       <el-table-column prop="title" label="标题" width="180" />
-
+      <el-table-column prop="lessonNum" label="课时" width="60" />
       <el-table-column label="发布状态" width="80">
         <template slot-scope="scope">
           {{ scope.row.status==="Normal"?'已发布':'未发布' }}
