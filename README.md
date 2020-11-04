@@ -111,3 +111,31 @@ vue-admin-edu\src\views\edu\course——list：课程信息展示列表及分类
 - 2020-10-30
 
 1、整合了博客管理的后台界面
+
+准备：
+
+        npm insatll markdown-it --save  //用于解析md文档（前后台都需要）
+        npm insatll github-markdown-css --save //md样式
+        
+        //后台 main.js
+        import mavonEditor from 'mavon-editor'
+        import 'mavon-editor/dist/css/index.css'
+        import 'github-markdown-css'
+        Vue.use(mavonEditor)
+        
+        //前台 nuxt.config.js
+        plugins: [
+            { src: "~plugins/vue-markdown.js", ssr: false },
+            { src: '~/plugins/nuxt-swiper-plugin.js', ssr: false }
+          ],
+        
+          css: [
+            {src:'swiper/swiper-bundle.css'},
+            { src: "mavon-editor/dist/css/index.css" }
+          ],
+        //plugins添加文件：vue-markdown.js
+        import Vue from 'vue'
+        import mavonEditor from 'mavon-editor'
+        Vue.use(mavonEditor)
+
+写入展示界面即可了

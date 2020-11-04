@@ -4,7 +4,8 @@ import cookie from 'js-cookie'
 // 创建axios实例
 const service = axios.create({
   baseURL: 'http://localhost:8010', // api的base_url
-  timeout: 20000 // 请求超时时间
+  timeout: 20000, // 请求超时时间
+  contentType:"application/json",
 })
 
 //拦截器

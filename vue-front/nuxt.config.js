@@ -3,11 +3,13 @@ module.exports = {
   ** Headers of the page
   */
   plugins: [
+    { src: "~plugins/vue-markdown.js", ssr: false },
     { src: '~/plugins/nuxt-swiper-plugin.js', ssr: false }
   ],
 
   css: [
-    'swiper/swiper-bundle.css'
+    {src:'swiper/swiper-bundle.css'},
+    { src: "mavon-editor/dist/css/index.css" }
   ],
   head: {
     title: '微教育',
@@ -40,7 +42,20 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+      chainWebpack: config => {
+        config.module
+          .rule('md')
+          .test(/\.md$/)
+          .use('vue-loader')
+          .loader('vue-loader')
+          .end()
+          .use('vue-markdown-loader')
+          .loader('vue-markdown-loader/lib/markdown-compiler')
+          .options({
+            raw: true
+          })
+      }
   }
 }
 

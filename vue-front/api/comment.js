@@ -16,8 +16,6 @@ export default {
       url: `/eduService/comment/addComment`,
       method: 'post',
       data: comment
-
     })
-
   }
 }
