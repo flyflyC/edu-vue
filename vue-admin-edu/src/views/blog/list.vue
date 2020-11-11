@@ -82,16 +82,21 @@
       </el-table-column>
 
       <el-table-column prop="description" label="描述" width="300" />
-      <el-table-column prop="content" label="内容" />
 
       <el-table-column prop="gmtCreate" label="发布时间" width="160"/>
-
+      <el-table-column prop="gmtModified" label="更新时间" width="160"/>
       <el-table-column prop="views" label="浏览数" width="40" />
       <el-table-column prop="goods" label="点赞数" width="40" />
       <el-table-column prop="comments" label="评论数" width="40" />
 
       <el-table-column label="操作" width="100" align="center">
         <template slot-scope="scope">
+          <router-link :to="'/blog/edit/'+scope.row.id">
+            <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
+          </router-link>
+          <router-link :to="'/blog/detail/'+scope.row.id">
+            <el-button type="primary" size="mini" icon="el-icon-search">查看</el-button>
+          </router-link>
           <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>

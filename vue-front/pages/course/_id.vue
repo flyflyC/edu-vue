@@ -296,7 +296,7 @@ export default {
     initCourseInfo(){
       courseApi.getCourseInfo(this.courseId)
         .then(res=>{
-          //console.log(res.data.data.courseWebVo)
+          console.log(res.data.data.courseWebVo)
             this.courseWebVo=res.data.data.courseWebVo,
             this.chapterVideo=res.data.data.chapterVideo,
             this.isbuy=res.data.data.isBuy

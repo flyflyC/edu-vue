@@ -123,11 +123,11 @@
 
         swiperOption: {
           //配置分页
-         /* pagination: {
+          pagination: {
             el: '.swiper-pagination' ,//分页的dom节点
-          },*/
-          pagination: '.swiper-pagination',
-          paginationClickable: true,
+          },
+          //pagination: '.swiper-pagination',
+         /* paginationClickable: true,
           autoplay: 2000,
           speed: 1000,
           loop: true,
@@ -135,12 +135,12 @@
           observeParents: true,
           autoplayDisableOnInteraction: false,
           nextButton: '.swiper-button-next',
-          prevButton: '.swiper-button-prev',
+          prevButton: '.swiper-button-prev',*/
           //配置导航
-          /*navigation: {
+          navigation: {
             nextEl: '.swiper-button-next',//下一页dom节点
             prevEl: '.swiper-button-prev'//前一页dom节点
-          }*/
+          }
         },
         //banner数组
         bannerList: [],

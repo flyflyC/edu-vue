@@ -35,6 +35,14 @@ export default {
       data: blog
     })
   },
+  // 修改并发布博客
+  updateIssueBlog(blog) {
+    return request({
+      url: `/edublog/blog/updateIssueBlog`,
+      method: 'post',
+      data: blog
+    })
+  },
   //展示个人博客
   pageMyBlogCondition(current, limit, queryBlog) {
     return request({

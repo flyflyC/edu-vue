@@ -183,10 +183,11 @@ export const constantRoutes = [
         meta: { title: '博客列表', icon: 'table' }
       },
       {
-        path: 'edit',
+        path: 'edit/:id',
         name: '编辑博客',
         component: () => import('@/views/blog/edit'),
-        meta: { title: '编辑博客', icon: 'tree' }
+        meta: { title: '编辑博客', icon: 'tree' },
+        hidden: true
       },
       {
         path: 'save',
@@ -195,7 +196,7 @@ export const constantRoutes = [
         meta: { title: '发布博客', icon: 'tree' }
       },
       {
-        path: 'detail',
+        path: 'detail/:id',
         name: '博客详情',
         component: () => import('@/views/blog/detail'),
         meta: { title: '博客详情', icon: 'tree' }

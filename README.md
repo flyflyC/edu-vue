@@ -114,8 +114,8 @@ vue-admin-edu\src\views\edu\course——list：课程信息展示列表及分类
 
 准备：
 
-        npm insatll markdown-it --save  //用于解析md文档（前后台都需要）
-        npm insatll github-markdown-css --save //md样式
+        npm install markdown-it --save  //用于解析md文档（前后台都需要）
+        npm install github-markdown-css --save //md样式
         
         //后台 main.js
         import mavonEditor from 'mavon-editor'
@@ -139,3 +139,7 @@ vue-admin-edu\src\views\edu\course——list：课程信息展示列表及分类
         Vue.use(mavonEditor)
 
 写入展示界面即可了
+
+2020-11-11
+
+解决了博客编辑保存和提交的bug
